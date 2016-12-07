@@ -2,7 +2,7 @@ class Spree::WishlistsController < Spree::StoreController
   helper 'spree/products'
 
   before_action :find_wishlist, only: [:destroy, :show, :update, :edit]
-  before_action :restrict_unauthenticated, except: [:show, :default]
+  before_action :restrict_unauthenticated
   before_action :move_wishlist_to_user, only: [:show, :default]
 
   respond_to :html
@@ -56,7 +56,7 @@ class Spree::WishlistsController < Spree::StoreController
   private
 
   def restrict_unauthenticated
-    redirect_to spree.root_path unless spree_current_user
+    redirect_to spree.root_path unless (spree_current_user || session[:wishlist_access_hash])
   end
 
   def wishlist_attributes

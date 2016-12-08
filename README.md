@@ -19,4 +19,16 @@ Run
 $ bundle install
 $ bundle exec rails g solidus_wishlist:install
 ```
+
+---
+
+## Gem is under development
+
+Feature "share wish list with friend" with URL contains access hash is not available right now, see [PR](https://github.com/denkungsart/solidus_wishlist/pull/1).
+
+## 1.5.0 version
+
+Introduce session-based wish lists. When user logged in, session-based wish lists will be added to this user.
+
+---
 Copyright (c) 2016 Deseret Book, released under the New BSD License
